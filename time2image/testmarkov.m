@@ -1,7 +1,7 @@
 
 a = (normrnd(0,5,100,1)');
-a = cos(1:0.2:100);
-[Q,p,QE]= computebins(a,3);
+a = cos((1:0.2:100).^2);
+[Q,QE]= computebins(a,5); % TODO fixme
 ad = discretize(a,[min(a),Q,max(a)]);
 
 subplot(2,1,1);
@@ -14,7 +14,7 @@ end
 plot(a,'--r');
 hold off
 subplot(2,1,2);
-hist(ad)
+hist(ad,1:max(ad))
 
 % build matrix
 % wij = 1..n
